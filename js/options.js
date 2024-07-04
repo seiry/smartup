@@ -76,12 +76,7 @@ var suo={
 			suo.initExclusion();
 			suo.initEnd();
 		},100)
-		// suo.welcome();
-		// suo.adInline();
-	},
-	adInline:()=>{
-		const inlineAd = suo.cons.donateData?.ad[0]?.find(ad => ad.type === "ad-inline" && !ad.on);
-		inlineAd && document.querySelector("#ad-inline")?.remove();
+
 	},
 	welcome:()=>{
 		const oninstallAd = suo.cons.reason!="install" || suo.cons.donateData?.ad[0]?.find(ad => ad.type === "ad-oninstall_popin" && !ad.on);
@@ -90,9 +85,6 @@ var suo={
 		const dom=(suo.initAPPbox([],[800,230],"SmartUp has been installed successfully, and the following is an advertisement provided by the sponsor.","bg","showlist"));
 		const domMain=dom.querySelector(".box_main");
 			domMain.innerText="";
-
-		const domAd=suo.domCreate2("iframe",{setName:["src","width","height","iframeborder"],setValue:["https://www.usechatgpt.ai",window.innerWidth*0.8,window.innerHeight*0.8,"none"]});
-		domMain.appendChild(domAd);
 		suo.initPos(dom)
 	},
 	initNewAdded:()=>{
